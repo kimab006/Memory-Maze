@@ -1,0 +1,243 @@
+body {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    font-family: "Space Mono", serif;
+    position: relative; 
+    cursor: none; 
+}
+
+.flashlight {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle 400px at var(--x) var(--y),
+        transparent 0%,
+        rgba(0, 0, 0, 0.85) 80%
+    );
+    pointer-events: none;
+    z-index: 5; 
+}
+
+
+#topButton {
+    top: 100px; 
+    left: 40px;
+}
+
+#topButton .triangle {
+    transform: rotate(180deg); 
+}
+
+.triangle-button {
+    position: fixed;
+    top: 40px;  
+    left: 40px;  
+    background: transparent;
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    isolation: isolate;
+}
+
+.triangle-text {
+    color: rgb(237, 89, 3);
+    font-family: "Space Mono", serif;
+    font-size: 20px;
+    margin-left: 20px;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+    user-select: none;
+    z-index: 9999;
+}
+
+.relative {
+    position: relative;
+    width: 6318.72px;
+    height: 4564.8px;
+    background: url("../Piecing-Memories/The-Maze-of-Memory/assets/maze.png");
+    background-repeat: no-repeat;
+    background-size: 6318.72px 4564.8px;
+    z-index: 1; 
+}
+
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 30px solid rgb(237, 89, 3);
+    transition: transform 0.3s ease;
+    pointer-events: auto;
+
+}
+
+.triangle-button.active .triangle {
+    transform: rotate(180deg);
+}
+
+.centered-div {
+    position: fixed;
+    padding: 25px;  
+    background: rgba(0, 0, 0, 0.9);
+    width: auto;    
+    height: auto;   
+    max-width: 700px; 
+    text-align: center;
+    z-index: 15;
+    color: rgb(237, 89, 3);
+    transition: opacity 0.4s ease;
+    font-family: "Space Mono", serif;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.5;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+}
+
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.circle {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(237, 89, 3);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease;
+}
+
+
+.hover-text {
+    display: none;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+}
+
+
+.circle:active {
+    transform: translate(-50%, -50%) scale(0.95);
+}
+
+#circle1 {
+    left: 2296.6px;
+    top: 755.35px;
+}
+
+#circle2 {
+    left: 1840.41px;
+    top: 2212.5px;
+}
+
+#circle3 {
+    left: 2904.2px;
+    top: 2506.44px;
+}
+
+#circle4 {
+    left: 2450.75px;
+    top: 3959.06px;
+}
+
+#circle5 {
+    left: 3732.61px;
+    top: 872.97px;
+}
+
+#circle6 {
+    left: 3577.63px;
+    top: 1613.44px;
+}
+
+#circle7 {
+    left: 4645.15px;
+    top: 2047.52px;
+}
+
+#circle8 {
+    left: 3890.18px;
+    top: 3938.34px;
+}
+
+
+/* .hover-text {
+    display: none;
+    color: white;
+    text-align: center;
+    width: 700px;
+    height: 300px;
+    padding: 10px;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    white-space: nowrap;
+    max-width: 200px;
+    overflow: visible;
+    z-index: 10;
+} */
+
+/* .circle:hover .hover-text {
+    display: block;
+} */
+
+@media (max-width: 600px) {
+    #final-objective {
+        font-size: 20px;
+        margin-left: 30px;
+        width: 80vw;
+    }
+    .continue-link {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    
+    .flashlight {
+        display: none;
+    }
+
+   
+    body {
+        cursor: auto;
+    }
+
+    
+    .triangle-button {
+        transform: scale(0.9);
+        padding-left: 0px;
+    }
+
+    .triangle-text {
+        font-size: 18px; 
+    }
+
+    .centered-div {
+        max-width: 85vw;
+        font-size: 16px;
+        padding: 15px;
+    }
+}

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remember With Me</title>
+    <link rel="stylesheet" href="stylei.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Redacted&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <div class="flashlight"></div>
+
+    <div class="triangle-button" id="toggleButton">
+        <div class="triangle"></div>
+        <span class="triangle-text">click for objective</span>
+    </div>
+    
+    <div class="triangle-button" id="topButton">
+        <div class="triangle"></div>
+        <span class="triangle-text">click to start the maze</span>
+    </div>
+    
+    
+    <div class="relative" id="maze-container">
+            <div class="circle" id="circle1">
+            <div class="hover-text">My childhood house is in front of me. If I focus enough, I can make out ████████████████ shutters. A sign reads “for sale” in the front yard. “█████ ████ ████████ is planning on buying it soon” my mother tells my father a few feet away. “Buying what?” I say. “Eileen this is ████████████████ ridiculous ████████” my father tells my mother. “████████████████ she needs this” my mother responds. I can’t make out the words though I know they’re fighting, and all I see is the house and its details slowly blurring the longer I focus on it.</div>
+        </div>
+        
+        <div class="circle" id="circle2">
+            <div class="hover-text"> We moved again for the second time. She tells me she met ████████ ████████ and that his daughter my age goes to school in ████████████████ ████████. I still can’t understand why I needed to change schools at all. I still can’t understand why I needed new friends. I still can’t understand why my dad can’t be with us.</div>
+            </div>
+        
+            <div class="circle" id="circle3">
+            <div class="hover-text">My friends have come over to hang out and it’s sophomore year of high school. They ask my mom and I about my time in South Carolina, and why I would ever move from the beach. I tell them that the schools are better here, and we’re closer to my extended family. They ask my mom all sorts of things like what our old house used to look like. I try to focus on it, but it always manages to slip from my mind. </div>
+        </div>
+        
+        <div class="circle" id="circle4">
+            <div class="hover-text"> I sit with my feet dangling on my piano bench. The music sheet in front reads ████████ ████████ ██████. My piano teacher Donna has crows feet around her ████████ ████████colored eyes. She tells me I need to practice my ████████ scales, if I want to someday play at Carnegie Hall. I don’t know what this hall is, or why it’s so special. “I’ll miss you when you ████████████████ Pennsylvania” she tells me. “Don’t forget me or our lessons” she says as she instructs me to play ████████ ████████again.</div>
+        </div>
+        
+        <div class="circle" id="circle5">
+            <div class="hover-text"> I head to my dad’s house which is only a few blocks from my mom’s house. We have dinner every Sunday, and he always takes me to school on the weekdays. He makes my favorite meal: naengmyeon, but I always refer to them as slippery noodles. He asks me how school was this week, and I say that it’s okay. He asks me if I still remember the marsh where the sailboats used to slowly go by. I said I could barely remember it. He says it’s a shame I’ve forgotten. He tells me we used to sit on the grass and play 60s rock when it was warm. He says that it was before him and mom fought as much, and it was the supposedly golden age of our family. I can’t picture it.</div>
+        </div>
+        
+        <div class="circle" id="circle6">
+            <div class="hover-text"> “Why are we here?” I ask my mom. “This is our new home,” she responds. “I already have a home,” I say. “Well now you can have two,” she finishes. “I don’t understand when we had a perfectly good home in South Carolina,” I tell her. “You may not understand now, but this is all for the best. You’ll see,” she says as she takes my small hands in hers. </div>
+        </div>
+        
+        <div class="circle" id="circle7">
+            <div class="hover-text">She brought the piano from South Carolina to Pennsylvania. ████████ ████████ █████ ████████ ██████. The same one I’ve played since before I could remember. The soft ████████ rug beneath my feet grounds me as I struggle to play ████████████████. She tells me that Pennsylvania is where she used to live, and where we are now. All I can remember is the long ████████████████ ████████ hour car ride. I ask my mom why my dad is no longer here. “It’s for the best, you’ll understand when you’re older.” she says. </div>
+        </div>
+        
+        <div class="circle" id="circle8">
+            <div class="hover-text"> I can see the blurred and warm nature of the sun reflecting on the bay. Sail boats pass by at a leisure pace, and I can smell the briney aroma ████████████████. The street is ████████████████ uniform fashion. ████████ ████████ ████████ ██████. “Why are we moving away?” I ask my mother. “Because ████████ ████████ ██████” she responds. Bikes are strewn across the grass, and my parents and I are sitting on beach towels. Soft cheery ████████████████ ████████is playing.</div>
+        </div>
+        
+    
+        <div class="relative" id="maze-container">
+            <div id="centered-target" class="centered-div hidden">
+                I have lost a lot of my childhood memories in the maze of my mind. Help me rediscover the hidden details of my past. Go through the maze by using two fingers on a trackpad and click and hold on a mouse. Some memories you come across may be missing some details depending on how far back they are. Hopefully by collecting them all you can piece together a fuller picture. Good luck.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+        const flashlight = document.querySelector('.flashlight');
+        
+        document.addEventListener('mousemove', (e) => {
+            flashlight.style.setProperty('--x', e.clientX + 'px');
+            flashlight.style.setProperty('--y', e.clientY + 'px');
+        });
+
+
+
+        const topButton = document.getElementById('topButton');
+        const topTriangle = topButton.querySelector('.triangle'); 
+
+        topButton.addEventListener('click', function() {
+      
+        topTriangle.classList.add('spinning');
+
+        
+        setTimeout(() => {
+        
+     }, 1000); 
+    
+
+    
+        const container = document.querySelector('.relative');
+     const startScrollTop = window.pageYOffset;
+     const startScrollLeft = window.pageXOffset;
+     const targetScrollTop = 0;
+     const targetScrollLeft = (container.offsetWidth / 2) - (window.innerWidth / 2);
+     const duration = 2000;
+     const startTime = performance.now();
+
+    function animate(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
+        
+        const currentScrollTop = startScrollTop + (targetScrollTop - startScrollTop) * easeProgress;
+        const currentScrollLeft = startScrollLeft + (targetScrollLeft - startScrollLeft) * easeProgress;
+        
+        window.scrollTo(currentScrollLeft, currentScrollTop);
+        
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        }
+    }
+    
+    requestAnimationFrame(animate);
+});
+
+
+        window.addEventListener('load', function() {
+            const targetDiv = document.getElementById('centered-target');
+            const toggleButton = document.getElementById('toggleButton');
+            const circles = document.querySelectorAll('.circle');
+            let isVisible = false;
+            let activeCircle = null;  
+    
+            const originalText = targetDiv.innerHTML;
+    
+            
+            circles.forEach((circle, index) => {
+                circle.addEventListener('click', function() {
+                    if (this === activeCircle && !targetDiv.classList.contains('hidden')) {
+                        targetDiv.classList.add('hidden');
+                        activeCircle = null;
+                        return;
+                    }
+    
+                    const memory = this.querySelector('.hover-text').textContent;
+                    targetDiv.innerHTML = memory;
+                    
+                    
+                    const circleRect = this.getBoundingClientRect();
+                    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    
+                    
+                    targetDiv.style.position = 'absolute';
+                    targetDiv.style.left = (circleRect.right + scrollLeft + 20) + 'px'; 
+                    targetDiv.style.top = (circleRect.top + scrollTop) + 'px';
+                    targetDiv.style.transform = 'translateY(-50%)'; 
+                    
+                    targetDiv.classList.remove('hidden');
+                    activeCircle = this;
+                });
+            });
+    
+            
+            toggleButton.addEventListener('click', function() {
+                isVisible = !isVisible;
+                
+                if (isVisible) {
+                    targetDiv.innerHTML = originalText;
+                    targetDiv.style.position = 'absolute';
+                    targetDiv.style.left = '3170px';
+                    targetDiv.style.top = '2275px';
+                    targetDiv.style.transform = 'translate(-50%, -50%)';
+                    
+                    targetDiv.classList.remove('hidden');
+                    centerDiv();
+                    toggleButton.classList.add('active');
+                    activeCircle = null;
+                } else {
+                    targetDiv.classList.add('hidden');
+                    toggleButton.classList.remove('active');
+                }
+            });
+    
+            
+        function centerDiv() {
+            const rect = targetDiv.getBoundingClientRect();
+         const container = document.querySelector('.relative');
+         const containerRect = container.getBoundingClientRect();
+    
+            const absoluteTop = rect.top + window.pageYOffset;
+            const absoluteLeft = rect.left + window.pageXOffset;
+    
+         const targetScrollTop = absoluteTop - (window.innerHeight / 2) + (rect.height / 2);
+         const targetScrollLeft = absoluteLeft - (window.innerWidth / 2) + (rect.width / 2);
+        
+         const startScrollTop = window.pageYOffset;
+         const startScrollLeft = window.pageXOffset;
+         const duration = 2000; // 2 seconds
+         const startTime = performance.now();
+
+     function animate(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
+        
+        const currentScrollTop = startScrollTop + (targetScrollTop - startScrollTop) * easeProgress;
+        const currentScrollLeft = startScrollLeft + (targetScrollLeft - startScrollLeft) * easeProgress;
+        
+        window.scrollTo(currentScrollLeft, currentScrollTop);
+        
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        }
+    }
+    
+    requestAnimationFrame(animate);
+    }
+        });
+   
+    </script>
+    
+</body>
+
+</html>
